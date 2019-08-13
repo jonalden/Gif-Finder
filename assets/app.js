@@ -8,7 +8,7 @@ function displayGif(event) {
     const gif = event.target.getAttribute("data-name");
 
     //API URL that we will be using for a GET request
-    const queryURL = "https://api.giphy.com/v1/gifs/search?&q=" + gif + "&limit=10&api_key=JhYen90npCadGl7DC2SHtIcI7DHBPT9H";
+    const queryURL = "https://api.giphy.com/v1/gifs/search?&q=" + gif + "&limit=10&rating=pg&api_key=JhYen90npCadGl7DC2SHtIcI7DHBPT9H";
 
     //executing the fetch/get request and converting to readable Json
     fetch(queryURL)
@@ -16,13 +16,13 @@ function displayGif(event) {
             return response.json()
         })
         .then(function (responseJson) {
-
+console.log(queryURL);
             for (let i = 0; i < responseJson.data.length; i++) {
                 console.log(responseJson);
 
                 //creating a div to display the gif and giving it a class "gif"
                 const gifDiv = document.createElement("div");
-                gifDiv.classList.add(".gif");
+                gifDiv.classList.add("gif");
 
                 //making a variable that grabs the still version of the gif to be displayed initially
                 const imageURL = responseJson.data[i].images.original_still.url;
@@ -32,34 +32,37 @@ function displayGif(event) {
                 const image = document.createElement("img");
 
                 const rating = document.createElement("p");
-                rating.innerHTML = responseJson.data[i].images.rating;
+                rating.innerHTML = "Rated: " + responseJson.data[i].rating;
+                console.log(rating);
+                console.log(responseJson.data[i].rating);
                 
 
+                // giving image the attributes to target with the click function 
                 image.setAttribute("src", imageURL);
                 image.setAttribute("data-animate-url", responseJson.data[i].images.original.url);
                 image.setAttribute("data-still-url", responseJson.data[i].images.original_still.url);
                 image.setAttribute("data-state", "still");
 
+
+                // adding on click function to the populated gifs to switch between animated and still versions
                 
+                    image.addEventListener("click", function () {
+                        
+                        if (image.getAttribute("data-state") === "still") {
 
-                document.querySelectorAll(".gif").forEach(function (element) {
-                    element.addEventListener("click", function () {
+                            let animateURL = image.getAttribute("data-animate-url");
 
-                        if (element.getAttribute("data-state") === "still") {
-
-                            let animateURL = element.getAttribute("data-animate-url");
-
-                            gifDiv.setAttribute("src", animateURL);
-                            gifDiv.setAttribute("data-state", "animate");
+                            image.setAttribute("src", animateURL);
+                            image.setAttribute("data-state", "animate");
                         }
                         else {
-                            var stillURL = element.getAttribute("data-still-url");
+                            let stillURL = image.getAttribute("data-still-url");
 
-                            gifDiv.setAttribute("src", stillURL);
-                            gifDiv.setAttribute("data-state", "still");
+                            image.setAttribute("src", stillURL);
+                            image.setAttribute("data-state", "still");
                         }
                     })
-                })
+                
 
                 //appending the Json image/gif to the div we created
                 gifDiv.append(image);
@@ -75,7 +78,6 @@ function displayGif(event) {
 
 function makeButtons() {
 
-
     document.getElementById("buttons-view").innerHTML = "";
 
     //loooping throught the index "movies" and creating a button for each index
@@ -90,7 +92,6 @@ function makeButtons() {
         document.getElementById("buttons-view").append(movieButton);
         movieButton.addEventListener("click", displayGif);
     }
-
 }
 
 //function to add user input to the array and create a button

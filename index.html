@@ -3,28 +3,24 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Giphy API</title>
-    <style type="text/css">
-        button,
-        div,
-        form,
-        input {
-            margin: 10px;
-        }
-    </style>
+    <title>Gif Finder</title>
+    <link rel="stylesheet" type="text/css" href="assets/meyer.css">
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lexend+Tera&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
-
+    <h1>Movie Gif Finder</h1>
     <div class="container">
-        <h1>Movie Gif Finder</h1>
+        
 
         <!-- Rendered Buttons will get Dumped Here  -->
         <div id="buttons-view"></div>
 
         <form id="gif-form">
-            <label for="gif-input">Movie Keyword: </label>
-            <input type="text" id="gif-input">
+            <!-- <label for="gif-input">Movie Keyword: </label> -->
+            <input type="text" id="gif-input" placeholder="Enter Movie Here">
             <br>
 
             <!-- Button triggers new movie to be added -->
@@ -35,6 +31,7 @@
         <div id="gifs-view"></div>
 
         <script src="assets/app.js"></script>
+    </div>
 
 </body>
 

@@ -1,0 +1,62 @@
+button,
+div,
+form,
+input {
+    margin: 10px;
+    padding: 10px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    background: teal;
+    margin-top: 0px;
+    padding: 30px;
+    text-align: center;
+    color: aliceblue;
+    font-size: 50px;
+}
+
+.movie {
+    background: lightblue;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.container {
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+p {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#gif-form {
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 5px;
+    margin: 0 auto;
+    width: 80%;
+}
+
+label {
+    font-size: 30px;
+    border-bottom: 1px solid black;
+}
+
+#add-gif {
+    background: lightblue;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+#gif-input {
+    width: 30%;
+    text-align: center;
+    font-size: 16px;
+}
+
