@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Giphy API</title>
+    <style type="text/css">
+        button,
+        div,
+        form,
+        input {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Movie Gif Finder</h1>
+
+        <!-- Rendered Buttons will get Dumped Here  -->
+        <div id="buttons-view"></div>
+
+        <form id="gif-form">
+            <label for="gif-input">Movie Keyword: </label>
+            <input type="text" id="gif-input">
+            <br>
+
+            <!-- Button triggers new movie to be added -->
+            <input id="add-gif" type="submit" value="Find your Gif">
+        </form>
+
+        <!-- Movies will Get Dumped Here -->
+        <div id="gifs-view"></div>
+
+        <script src="assets/app.js"></script>
+
+</body>
+
+</html>
